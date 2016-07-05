@@ -1,0 +1,97 @@
+<%= form_for(usuario) do |f| %>
+  <% if usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+
+      <ul>
+      <% usuario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :login %>
+    <%= f.text_field :login %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <%f.object.pessoa ||= Pessoa.new%>
+  <%= f.fields_for :pessoa do |ff|%>
+
+    <div class="field">
+      <%= ff.label :nome %>
+      <%= ff.text_field :nome %>
+    </div>
+
+    <div class="field">
+      <%= ff.label :cpf %>
+      <%= ff.text_field :cpf %>
+    </div>
+
+    <div class="field">
+      <%= ff.label :rg %>
+      <%= ff.text_field :rg %>
+    </div>
+
+     <div class="field">
+      <%= ff.label :data_nascimento %>
+      <%= ff.date_field :data_nascimento %>
+    </div>
+
+    <div class="field">
+      <%= ff.label :email %>
+      <%= ff.email_field  :email %>
+    </div>
+
+    <div class="field">
+      <%= ff.label :telefone %>
+      <%= ff.text_field :telefone %>
+    </div>
+
+     <div class="field">
+      <%= ff.label :celular %>
+      <%= ff.text_field :celular %>
+    </div>
+    <%ff.object.endereco ||= Endereco.new%>
+    <%= ff.fields_for :endereco do |f3|%>
+      <div class="field">
+        <%= f3.label :cidade %>
+        <%= f3.select :cidade_id, Cidade.all.collect { |p| [ p.localidade, p.id ] } %>
+      </div>
+
+      <div class="field">
+      <%= f3.label :numero %>
+      <%= f3.text_field :numero %>
+      </div>
+      <div class="field">
+        <%= f3.label :logradouro %>
+        <%= f3.text_field :logradouro %>
+      </div>
+      <div class="field">
+        <%= f3.label :complemento %>
+        <%= f3.text_field :complemento %>
+      </div>
+      <div class="field">
+        <%= f3.label :cep %>
+        <%= f3.text_field :cep %>
+      </div>
+    <%end%>
+
+  <%end%>
+
+  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
