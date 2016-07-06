@@ -1,0 +1,2 @@
+class TipoColaborador < ApplicationRecord
+end

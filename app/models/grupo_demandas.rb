@@ -1,0 +1,2 @@
+class GrupoDemandas < ApplicationRecord
+end

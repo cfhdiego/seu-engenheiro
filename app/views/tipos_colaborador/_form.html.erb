@@ -1,0 +1,22 @@
+<%= form_for(tipo_colaborador) do |f| %>
+  <% if tipo_colaborador.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tipo_colaborador.errors.count, "error") %> prohibited this tipo_colaborador from being saved:</h2>
+
+      <ul>
+      <% tipo_colaborador.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descricao %>
+    <%= f.text_field :descricao %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

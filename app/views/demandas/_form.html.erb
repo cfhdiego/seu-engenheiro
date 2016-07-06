@@ -1,0 +1,52 @@
+<%= form_for(demanda) do |f| %>
+  <% if demanda.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(demanda.errors.count, "error") %> prohibited this demanda from being saved:</h2>
+
+      <ul>
+      <% demanda.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.hidden_field :estado %>
+    <% f.object.pessoa_id = Usuario.find(current_user).pessoa_id%>
+    <%= f.hidden_field :pessoa_id%>
+
+
+  <div class="field">
+    <%= f.label :descricao %>
+    <%= f.text_area :descricao, size: "50x25" %>
+  </div>
+
+  <%f.object.endereco ||= Endereco.new%>
+    <%= f.fields_for :endereco do |f3|%>
+      <div class="field">
+        <%= f3.label :cidade %>
+        <%= f3.select :cidade_id, Cidade.all.collect { |p| [ p.localidade, p.id ] } %>
+      </div>
+
+      <div class="field">
+      <%= f3.label :numero %>
+      <%= f3.text_field :numero %>
+      </div>
+      <div class="field">
+        <%= f3.label :logradouro %>
+        <%= f3.text_field :logradouro %>
+      </div>
+      <div class="field">
+        <%= f3.label :complemento %>
+        <%= f3.text_field :complemento %>
+      </div>
+      <div class="field">
+        <%= f3.label :cep %>
+        <%= f3.text_field :cep %>
+      </div>
+    <%end%>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

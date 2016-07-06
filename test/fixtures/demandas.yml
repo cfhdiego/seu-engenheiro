@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pessoa_id: 1
+  endereco_id: 1
+  estado: 1
+  data_fim: 1
+  descricao: MyString
+
+two:
+  pessoa_id: 1
+  endereco_id: 1
+  estado: 1
+  data_fim: 1
+  descricao: MyString

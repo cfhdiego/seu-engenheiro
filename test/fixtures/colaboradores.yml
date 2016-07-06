@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pessoa_id: 1
+  tipo_colaborador_id: 1
+  habilitado: false
+
+two:
+  pessoa_id: 1
+  tipo_colaborador_id: 1
+  habilitado: false

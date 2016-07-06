@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :colaboradores
+  resources :tipos_colaborador
+  resources :grupos_demandas
+  resources :demandas
   get 'sessions/new'
   root 'sessions#new'
   resources :usuarios

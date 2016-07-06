@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Demandas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pessoa</th>
+      <th>Endereco</th>
+      <th>Estado</th>
+      <th>Data fim</th>
+      <th>Descricao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @demandas.each do |demanda| %>
+      <tr>
+        <td><%= demanda.pessoa_id %></td>
+        <td><%= demanda.endereco_id %></td>
+        <td><%= demanda.estado %></td>
+        <td><%= demanda.data_fim %></td>
+        <td><%= demanda.descricao %></td>
+        <td><%= link_to 'Show', demanda %></td>
+        <td><%= link_to 'Edit', edit_demanda_path(demanda) %></td>
+        <td><%= link_to 'Destroy', demanda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Demanda', new_demanda_path %>

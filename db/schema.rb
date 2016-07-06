@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160704234316) do
+ActiveRecord::Schema.define(version: 20160706141029) do
 
   create_table "cidades", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "estado_id"
@@ -21,6 +21,27 @@ ActiveRecord::Schema.define(version: 20160704234316) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["estado_id"], name: "fk_rails_d51899ba78", using: :btree
+  end
+
+  create_table "colaboradores", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "pessoa_id"
+    t.integer  "tipo_colaborador_id"
+    t.boolean  "habilitado"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "demandas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "pessoa_id"
+    t.integer  "endereco_id"
+    t.integer  "estado"
+    t.datetime "data_fim"
+    t.string   "descricao"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "grupo_demandas_id"
+    t.index ["endereco_id"], name: "fk_rails_ed8df0481a", using: :btree
+    t.index ["pessoa_id"], name: "fk_rails_2fbc0ec8b2", using: :btree
   end
 
   create_table "enderecos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -44,6 +65,12 @@ ActiveRecord::Schema.define(version: 20160704234316) do
     t.index ["pais_id"], name: "fk_rails_04cf8c14b4", using: :btree
   end
 
+  create_table "grupos_demandas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "estado"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "paises", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "descricao"
     t.datetime "created_at", null: false
@@ -64,6 +91,12 @@ ActiveRecord::Schema.define(version: 20160704234316) do
     t.index ["endereco_id"], name: "fk_rails_5ed4cd9168", using: :btree
   end
 
+  create_table "tipos_colaborador", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "usuarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "pessoa_id"
     t.string   "login"
@@ -74,6 +107,8 @@ ActiveRecord::Schema.define(version: 20160704234316) do
   end
 
   add_foreign_key "cidades", "estados"
+  add_foreign_key "demandas", "enderecos"
+  add_foreign_key "demandas", "pessoas"
   add_foreign_key "enderecos", "cidades"
   add_foreign_key "estados", "paises"
   add_foreign_key "pessoas", "enderecos"

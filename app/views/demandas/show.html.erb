@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pessoa:</strong>
+  <%= @demanda.pessoa_id %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @demanda.endereco_id %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @demanda.estado %>
+</p>
+
+<p>
+  <strong>Data fim:</strong>
+  <%= @demanda.data_fim %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @demanda.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_demanda_path(@demanda) %> |
+<%= link_to 'Back', demandas_path %>

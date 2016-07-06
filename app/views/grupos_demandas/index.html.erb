@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Grupos Demandas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Estado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grupos_demandas.each do |grupo_demandas| %>
+      <tr>
+        <td><%= grupo_demandas.estado %></td>
+        <td><%= link_to 'Show', grupo_demandas %></td>
+        <td><%= link_to 'Edit', edit_grupo_demandas_path(grupo_demandas) %></td>
+        <td><%= link_to 'Destroy', grupo_demandas, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Grupo Demandas', new_grupo_demandas_path %>
