@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706141029) do
+ActiveRecord::Schema.define(version: 20160712233241) do
 
   create_table "cidades", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "estado_id"
@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(version: 20160706141029) do
     t.boolean  "habilitado"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+  end
+
+  create_table "colaboradores_grupo_demandas", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "grupo_demandas_id", null: false
+    t.integer "colaborador_id",    null: false
   end
 
   create_table "demandas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

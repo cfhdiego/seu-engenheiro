@@ -19,8 +19,8 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 	inflect.irregular 'pais', 'paises'
 	inflect.irregular 'Pais', 'Paises'
 
-	inflect.irregular 'grupo_demandas', 'grupos_demanda'
-	inflect.irregular 'GrupoDemandas', 'GruposDemanda'
+	inflect.irregular 'grupo_demandas', 'grupos_demandas'
+	inflect.irregular 'GrupoDemandas', 'GruposDemandas'
 
 	inflect.irregular 'colaborador', 'colaboradores'
 	inflect.irregular 'Colaborador', 'Colaboradores'

@@ -10,10 +10,19 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <th> Demandas: </th>
+    <%= f.collection_check_boxes :demanda_ids, Demanda.all.where("grupo_demandas_id is null"), :id, :codigo %>
+  </div>
+
+  <div class="field">
+    <th> Equipe: </th>
+    <%= f.collection_check_boxes :colaborador_ids, Colaborador.all, :id, :nome %>
+  </div>
 
   <div class="field">
     <%= f.label :estado %>
-    <%= f.number_field :estado %>
+    <%= f.select :estado, GrupoDemandas::ESTADO%>
   </div>
 
   <div class="actions">

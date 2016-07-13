@@ -69,6 +69,6 @@ class GruposDemandasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def grupo_demandas_params
-      params.require(:grupo_demandas).permit(:estado)
+      params.require(:grupo_demandas).permit(:estado, :demanda_ids => [], :colaborador_ids => [])
     end
 end

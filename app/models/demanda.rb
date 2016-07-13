@@ -12,4 +12,8 @@ class Demanda < ApplicationRecord
 	AGUARDANDO_GRUPO = 2
 	EM_ANDAMENTO = 3
 	FINALIZADO = 4
+
+	def codigo
+		self.id.to_s + ' ' + self.pessoa.nome
+	end
 end
