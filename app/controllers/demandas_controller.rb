@@ -21,6 +21,10 @@ class DemandasController < ApplicationController
   def edit
   end
 
+  def relatorio
+    @relatorio = RelatorioColaborador.new(:demanda_id => @demanda)
+  end
+
   # POST /demandas
   # POST /demandas.json
   def create

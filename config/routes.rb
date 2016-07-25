@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+  resources :regras
+  resources :grupos
+  resources :anexo_relatorios_colaborador
+  resources :relatorios_colaborador
   resources :colaboradores
   resources :tipos_colaborador
   resources :grupos_demandas
   resources :demandas
+  resources :minhas_demandas
+  get 'demandas/relatorio/:id', to: 'demandas#relatorio', as: 'relatorio_demanda'
+  get 'minhas_demandas/show/:id', to: 'minhas_demandas#show', as: 'show_minha_demanda'
   get 'sessions/new'
   root 'sessions#new'
   resources :usuarios

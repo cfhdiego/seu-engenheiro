@@ -6,6 +6,8 @@ gem 'rails', '~> 5.0.0'
 
 gem 'mysql2'
 
+gem 'mocha'
+
 gem 'bcrypt'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'

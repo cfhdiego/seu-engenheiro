@@ -1,0 +1,27 @@
+<%= form_for(anexo_relatorio_colaborador) do |f| %>
+  <% if anexo_relatorio_colaborador.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(anexo_relatorio_colaborador.errors.count, "error") %> prohibited this anexo_relatorio_colaborador from being saved:</h2>
+
+      <ul>
+      <% anexo_relatorio_colaborador.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :path %>
+    <%= f.text_field :path %>
+  </div>
+
+  <div class="field">
+    <%= f.label :relatorio_colaborador_id %>
+    <%= f.text_field :relatorio_colaborador_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

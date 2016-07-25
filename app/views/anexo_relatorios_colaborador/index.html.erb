@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Anexo Relatorios Colaborador</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Path</th>
+      <th>Relatorio colaborador</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @anexo_relatorios_colaborador.each do |anexo_relatorio_colaborador| %>
+      <tr>
+        <td><%= anexo_relatorio_colaborador.path %></td>
+        <td><%= anexo_relatorio_colaborador.relatorio_colaborador %></td>
+        <td><%= link_to 'Show', anexo_relatorio_colaborador %></td>
+        <td><%= link_to 'Edit', edit_anexo_relatorio_colaborador_path(anexo_relatorio_colaborador) %></td>
+        <td><%= link_to 'Destroy', anexo_relatorio_colaborador, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Anexo Relatorio Colaborador', new_anexo_relatorio_colaborador_path %>

@@ -24,6 +24,7 @@
         <td><%= demanda.descricao %></td>
         <td><%= link_to 'Show', demanda %></td>
         <td><%= link_to 'Edit', edit_demanda_path(demanda) %></td>
+        <td><%= link_to 'Adicionar Relatorio', relatorio_demanda_path(demanda) %></td>
         <td><%= link_to 'Destroy', demanda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

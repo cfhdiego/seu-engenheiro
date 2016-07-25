@@ -1,0 +1,29 @@
+<%= form_for(relatorio_colaborador) do |f| %>
+  <% if relatorio_colaborador.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(relatorio_colaborador.errors.count, "error") %> prohibited this relatorio_colaborador from being saved:</h2>
+
+      <ul>
+      <% relatorio_colaborador.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descricao %>
+    <%= f.text_area :descricao %>
+  </div>
+
+  <% f.object.demanda_id = params[:id]%>
+  <%= f.hidden_field :demanda_id%>
+
+  <% f.object.colaborador_id = current_user.id%>
+  <%= f.hidden_field :colaborador_id%>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

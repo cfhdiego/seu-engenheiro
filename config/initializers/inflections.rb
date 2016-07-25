@@ -27,4 +27,7 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 
 	inflect.irregular 'tipo_colaborador', 'tipos_colaborador'
 	inflect.irregular 'TipoColaborador', 'TiposColaborador'
+
+	inflect.irregular 'relatorio_colaborador', 'relatorios_colaborador'
+	inflect.irregular 'RelatorioColaborador', 'RelatoriosColaborador'
 end
