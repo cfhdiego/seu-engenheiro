@@ -1,28 +1,44 @@
 
+<!--BEGIN ROW-->
 <div class="row">
-  <div class="col s4 offset-s4">
-    <h1>Login</h1>
-<%= form_for :session, url: sign_in_path do |f| %>
-    <div class="field">
-      <%= f.label :login, 'Login' %><br />
-      <%= f.text_field :login, autofocus: true %>
-    </div>
-   
-    <div class="field">
-      <%= f.label :password , 'Senha' %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
+  
+  <!--BEGIN COL-->
+  <div class="col s6 offset-s3">
     
-    <div class="row text-align center">
-      <div class="actions">
-        <%= f.submit "Entrar", :class => "btn" %>
+    <%= form_for :session, url: sign_in_path do |f| %>
+    <!--BEGIN CARD-->
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">Login</span>
+        
+            <div class="field">
+              <%= f.label :login, 'Login' %><br />
+              <%= f.text_field :login, autofocus: true %>
+            </div>
+           
+            <div class="field">
+              <%= f.label :password , 'Senha' %><br />
+              <%= f.password_field :password, autocomplete: "off" %>
+            </div>
+            
+            
+            
       </div>
-      <p class="center">Ou</p>
-      
-      <%= link_to "Cadastre-se aqui", new_usuario_path, :class => "btn" %>
+      <div class="card-action text-align center">
+        <div class="input-field">
+          <%= f.submit "Entrar", :class => "btn cyan", :style => "width: 100%" %>
+        </div>
+        <div class="input-field">
+          <%= link_to "Cadastre-se aqui", new_usuario_path, :style => "margin: 0" %>
+        </div>
+      </div>
     </div>
+    <!--END CARD-->
     
     <% end %>
   
   </div>
+  <!--END COL-->
+  
 </div>
+<!--END ROW-->
