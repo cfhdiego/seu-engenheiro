@@ -66,6 +66,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    materialize-sass (0.97.6)
+      sass (~> 3.3)
     metaclass (0.0.4)
     method_source (0.8.2)
     mime-types (3.1)
@@ -153,6 +155,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
   jquery-rails
+  materialize-sass
   mocha
   mysql2
   puma (~> 3.0)
