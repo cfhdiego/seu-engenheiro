@@ -1,15 +1,28 @@
+
+<div class="row">
+  <div class="col s4 offset-s4">
+    <h1>Login</h1>
 <%= form_for :session, url: sign_in_path do |f| %>
     <div class="field">
-      <%= f.label :login %><br />
+      <%= f.label :login, 'Login' %><br />
       <%= f.text_field :login, autofocus: true %>
     </div>
    
     <div class="field">
-      <%= f.label :password %><br />
+      <%= f.label :password , 'Senha' %><br />
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
-    <div class="actions">
-      <%= f.submit "Log in" %>
+    
+    <div class="row text-align center">
+      <div class="actions">
+        <%= f.submit "Entrar", :class => "btn" %>
+      </div>
+      <p class="center">Ou</p>
+      
+      <%= link_to "Cadastre-se aqui", new_usuario_path, :class => "btn" %>
     </div>
-  <p>Cadastre-se <%= link_to "Cadastro", new_usuario_path %></p>
-  <% end %>
+    
+    <% end %>
+  
+  </div>
+</div>
