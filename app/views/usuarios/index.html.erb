@@ -1,31 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Usuarios</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Pessoa</th>
-      <th>Login</th>
-      <th>Password digest</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @usuarios.each do |usuario| %>
-      <tr>
-        <td><%= usuario.pessoa_id %></td>
-        <td><%= usuario.login %></td>
-        <td><%= usuario.password_digest %></td>
-        <td><%= link_to 'Show', usuario %></td>
-        <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="card">
+      <div class="card-content">
+        
+        <span class="card-title">Usuários</span>
+        <table>
+          <thead>
+            <tr>
+              <th>Pessoa</th>
+              <th>Login</th>
+              <th>Password digest</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+        
+          <tbody>
+            <% @usuarios.each do |usuario| %>
+              <tr>
+                <td><%= usuario.pessoa_id %></td>
+                <td><%= usuario.login %></td>
+                <td><%= usuario.password_digest %></td>
+                <td><%= link_to 'Detalhar', usuario %></td>
+                <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
+                <td><%= link_to 'Remover', usuario, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        
+      </div>
+      <div class="card-action">
+      </div>
+    </div>
 
 <br>
 
-<%= link_to 'New Usuario', new_usuario_path %>
+<%= link_to 'Adicionar Usuário', new_usuario_path, :class => "btn cyan" %>
