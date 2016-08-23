@@ -10,22 +10,42 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <th> Demandas: </th>
-    <%= f.collection_check_boxes :demanda_ids, Demanda.all.where("grupo_demandas_id is null"), :id, :codigo %>
+  
+<div class="card">
+    <div class="card-content">
+      <div class="input-field col s12">  
+        <span class="card-title">Novo grupo de demanda</span>
+          <div class="input-field">
+            <p>COLABORADORES</p>
+            <%= f.collection_check_boxes :demanda_ids, Demanda.all.where("grupo_demandas_id is null"), :id, :codigo %>
+          </div>
+          
+          <br>
+          <br>
+          
+          <div class="input-field">
+            <p>EQUIPE</p>
+            <%= f.collection_check_boxes :colaborador_ids, Colaborador.all, :id, :nome %>
+          </div>
+          
+          <br>
+          <br>
+        
+          <div class="input-field">
+            <%= f.select :estado, GrupoDemandas::ESTADO%>
+            <%= f.label 'Status da demanda' %>
+          </div>
+          
+      </div>
   </div>
-
-  <div class="field">
-    <th> Equipe: </th>
-    <%= f.collection_check_boxes :colaborador_ids, Colaborador.all, :id, :nome %>
-  </div>
-
-  <div class="field">
-    <%= f.label :estado %>
-    <%= f.select :estado, GrupoDemandas::ESTADO%>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
+<div class="input-field col s12">
+  <%= f.submit 'Enviar', :class => "btn cyan right" %>
+</div>
 <% end %>
+
+<script>
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>

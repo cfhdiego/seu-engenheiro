@@ -1,36 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Demandas</h1>
+<div class="card">
+    <div class="card-content">
+    <span class="card-title">Demandas</span>
 
-<table>
-  <thead>
-    <tr>
-      <th>Pessoa</th>
-      <th>Endereco</th>
-      <th>Estado</th>
-      <th>Data fim</th>
-      <th>Descricao</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <table>
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Estado</th>
+            <th>Data fim</th>
+            <th>Opções</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @demandas.each do |demanda| %>
+            <tr>
+              <td><%= demanda.pessoa.nome %></td>
+              <td><%= demanda.estado %></td>
+              <td><%= demanda.data_fim %></td>
+              <td><%= link_to 'Detalhar', demanda %></td>
+              <td><%= link_to 'Editar', edit_demanda_path(demanda) %></td>
+              <td><%= link_to 'Adicionar Relatorio', relatorio_demanda_path(demanda) %></td>
+              <td><%= link_to 'Remover', demanda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-  <tbody>
-    <% @demandas.each do |demanda| %>
-      <tr>
-        <td><%= demanda.pessoa_id %></td>
-        <td><%= demanda.endereco_id %></td>
-        <td><%= demanda.estado %></td>
-        <td><%= demanda.data_fim %></td>
-        <td><%= demanda.descricao %></td>
-        <td><%= link_to 'Show', demanda %></td>
-        <td><%= link_to 'Edit', edit_demanda_path(demanda) %></td>
-        <td><%= link_to 'Adicionar Relatorio', relatorio_demanda_path(demanda) %></td>
-        <td><%= link_to 'Destroy', demanda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    </div>
+    <div class="card-action">
+    </div>
+</div>
 
-<br>
-
-<%= link_to 'New Demanda', new_demanda_path %>
+<%= link_to 'Nova Demanda', new_demanda_path, :class => "btn cyan" %>

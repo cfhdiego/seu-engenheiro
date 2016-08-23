@@ -1,26 +1,63 @@
-      <nav>
-        <div class="nav-wrapper white" style="padding: 0px 30px">
-          <a href="#" class="brand-logo">SeuEngenheiro</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-dow">
-            <!-- Dropdown Trigger -->
-            <li>
-              <a class="dropdown-button" href="#!" data-activates="dropdown1">
-                Dropdown
-              </a>
-            </li>
-            <% if logged_in? %>
-              <li><%= link_to "Log out", sign_out_path, :method => :delete %></li>
-            <% else %>
-              <li><%= link_to "Log in", root_path %></li>
-            <% end %>
-          </ul>
-        </div>
-      </nav>
-
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
+  <li><%= link_to "Demandas", demandas_path %></li></li>
   <li class="divider"></li>
-  <li><a href="#!">three</a></li>
+  <li><%= link_to "Minhas Demandas", minhas_demandas_path %></li></li>
+  <li class="divider"></li>
+  <li><%= link_to "Nova Demanda", new_demanda_path %></li></li>
+  
+
 </ul>
+
+<ul id="dropdown2" class="dropdown-content">
+  <li><%= link_to "Grupos de Demanda", grupos_demandas_path %></li></li>
+  <li class="divider"></li>
+  <li><%= link_to "Novo Grupo de Demanda", new_grupo_demandas_path %></li></li>
+</ul>
+
+
+
+<ul id="dropdown4" class="dropdown-content">
+  <li><%= link_to "Usuarios", usuarios_path %></li></li>
+  <li class="divider"></li>
+  <li><%= link_to "Novo Usuario", new_usuario_path %></li></li>
+  <li class="divider"></li>
+  <li><%= link_to "Aprovar Colaboradores", new_demanda_path %></li></li>
+  <li class="divider"></li>
+  <li><%= link_to "Grupos de Regra", grupos_path %></li></li>
+</ul>      
+
+     
+        
+            <% if logged_in? %>
+              <nav>
+                <div class="nav-wrapper white" style="padding: 0px 30px">
+                  <img src="https://s32.postimg.org/4yfm539h1/Seu_Engenheiro_Horizontal.png" id="logo-header">
+                  <ul id="nav-mobile" class="right hide-on-med-and-dow">
+                  <!-- Dropdown Trigger -->
+                  <li>
+                    <a class="dropdown-button" href="#!" data-activates="dropdown1">
+                      Demandas
+                    </a>
+                  </li>
+                      <li><%= link_to "Colaboradores", colaboradores_path %></li></li>
+                   <li>
+                    <a class="dropdown-button" href="#!" data-activates="dropdown2">
+                      Grupos de Demanda
+                    </a>
+                  </li>
+                   <li>
+                    
+                  </li>
+                   <li>
+                    <a class="dropdown-button" href="#!" data-activates="dropdown4">
+                      Configurações
+                    </a>
+                  </li>
+                
+                      <li><%= link_to "Sair", sign_out_path, :method => :delete %></li>
+                    </ul>
+                </div>
+              </nav>
+            <% end %>
+          

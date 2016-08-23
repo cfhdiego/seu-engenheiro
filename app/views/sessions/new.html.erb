@@ -4,13 +4,14 @@
   
   <!--BEGIN COL-->
   <div class="col s6 offset-s3">
-    
+    <br>
+    <br>
+    <br>
     <%= form_for :session, url: sign_in_path do |f| %>
     <!--BEGIN CARD-->
-    <div class="card">
-      <div class="card-content">
-        <span class="card-title">Login</span>
-        
+    <div>
+      <img src="https://s32.postimg.org/cqan1fuh1/Seu_Engenheiro.png" class="logo-login"></img>
+    </div>
             <div class="field">
               <%= f.label :login, 'Login' %><br />
               <%= f.text_field :login, autofocus: true %>
@@ -21,10 +22,7 @@
               <%= f.password_field :password, autocomplete: "off" %>
             </div>
             
-            
-            
-      </div>
-      <div class="card-action text-align center">
+      <div class="text-align center">
         <div class="input-field">
           <%= f.submit "Entrar", :class => "btn cyan", :style => "width: 100%" %>
         </div>
@@ -32,7 +30,9 @@
           <%= link_to "Cadastre-se aqui", new_usuario_path, :style => "margin: 0" %>
         </div>
       </div>
-    </div>
+            
+  </div>
+
     <!--END CARD-->
     
     <% end %>

@@ -1,29 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Pessoa:</strong>
-  <%= @demanda.pessoa_id %>
-</p>
+<div class="ruby-show">
+  <p>
+    <strong>Cliente:</strong>
+    <%= @demanda.pessoa.nome %>
+  </p>
+  
+  <p>
+    <strong>Logradouro:</strong>
+    <%= @demanda.endereco.logradouro %>
+  </p>
+  
+  <p>
+    <strong>Numero:</strong>
+    <%= @demanda.endereco.numero %>
+  </p>
+  
+   <p>
+    <strong>Cidade:</strong>
+    <%= @demanda.endereco.cidade.localidade %>
+  </p>
+  
+  <p>
+    <strong>Complemento:</strong>
+    <%= @demanda.endereco.complemento %>
+  </p>
+  
+  <p>
+    <strong>CEP:</strong>
+    <%= @demanda.endereco_id %>
+  </p>
+  
+  
+  <p>
+    <strong>Estado:</strong>
+    <%= @demanda.estado %>
+  </p>
+  
+  <p>
+    <strong>Data fim:</strong>
+    <%= @demanda.data_fim %>
+  </p>
+  
+  <p>
+    <strong>Descricao:</strong>
+    <%= @demanda.descricao %>
+  </p>
+</div>
 
-<p>
-  <strong>Endereco:</strong>
-  <%= @demanda.endereco_id %>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @demanda.estado %>
-</p>
-
-<p>
-  <strong>Data fim:</strong>
-  <%= @demanda.data_fim %>
-</p>
-
-<p>
-  <strong>Descricao:</strong>
-  <%= @demanda.descricao %>
-</p>
-
-<%= link_to 'Edit', edit_demanda_path(@demanda) %> |
-<%= link_to 'Back', demandas_path %>
+<%= link_to 'Voltar', demandas_path, :class => 'btn grey' %>
+<%= link_to 'Editar', edit_demanda_path(@demanda), :class => 'btn cyan' %>

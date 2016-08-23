@@ -1,3 +1,29 @@
 nav a {
     color: black !important;
 }
+
+.ruby-show > p > strong {
+    text-transform: uppercase;
+    display: block;
+}
+
+.logo-login {
+    display: block;
+    width: 40%;
+    margin: auto;
+}
+
+#logo-header {
+    height: inherit;
+    padding: 15px;
+}
+
+nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 100px !important;
+    line-height: 100px !important;
+}
+
+nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    line-height: 100px !important;
+}
+

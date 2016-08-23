@@ -10,10 +10,14 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :tipo_colaborador_id %>
+<div class="card">
+    <div class="card-content">
+      <div class="input-field col s12">  
+        <span class="card-title">Novo grupo de demanda</span>
+        
+  <div class="input-field">
     <%= f.select :tipo_colaborador_id, TipoColaborador.all.collect { |p| [ p.descricao, p.id ] }  %>
+    <%= f.label 'Tipo de Colaborador' %>
   </div>
 
   <%f.object.habilitado = 0%>
@@ -22,60 +26,60 @@
   <%f.object.pessoa ||= Pessoa.new%>
   <%= f.fields_for :pessoa do |ff|%>
 
-    <div class="field">
+    <div class="input-field">
       <%= ff.label :nome %>
       <%= ff.text_field :nome %>
     </div>
 
-    <div class="field">
+    <div class="input-field">
       <%= ff.label :cpf %>
       <%= ff.text_field :cpf %>
     </div>
 
-    <div class="field">
+    <div class="input-field">
       <%= ff.label :rg %>
       <%= ff.text_field :rg %>
     </div>
 
-     <div class="field">
+     <div class="input-field">
       <%= ff.label :data_nascimento %>
       <%= ff.date_field :data_nascimento %>
     </div>
 
-    <div class="field">
+    <div class="input-field">
       <%= ff.label :email %>
       <%= ff.email_field  :email %>
     </div>
 
-    <div class="field">
+    <div class="input-field">
       <%= ff.label :telefone %>
       <%= ff.text_field :telefone %>
     </div>
 
-     <div class="field">
+     <div class="input-field">
       <%= ff.label :celular %>
       <%= ff.text_field :celular %>
     </div>
     <%ff.object.endereco ||= Endereco.new%>
     <%= ff.fields_for :endereco do |f3|%>
-      <div class="field">
-        <%= f3.label :cidade %>
+      <div class="input-field">
         <%= f3.select :cidade_id, Cidade.all.collect { |p| [ p.localidade, p.id ] } %>
+        <%= f3.label "Cidade" %>
       </div>
 
-      <div class="field">
+      <div class="input-field">
       <%= f3.label :numero %>
       <%= f3.text_field :numero %>
       </div>
-      <div class="field">
+      <div class="input-field">
         <%= f3.label :logradouro %>
         <%= f3.text_field :logradouro %>
       </div>
-      <div class="field">
+      <div class="input-field">
         <%= f3.label :complemento %>
         <%= f3.text_field :complemento %>
       </div>
-      <div class="field">
+      <div class="input-field">
         <%= f3.label :cep %>
         <%= f3.text_field :cep %>
       </div>
@@ -84,6 +88,21 @@
   <%end%>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Enviar', :class => 'btn cyan' %>
   </div>
 <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+  
+  $(document).on('change', input_selector, function () {
+      if($(this).val().length !== 0) {
+       $(this).siblings('label, i').addClass('active');
+      }
+   });
+</script>

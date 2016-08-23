@@ -10,11 +10,19 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :descricao %>
-    <%= f.text_area :descricao %>
+  
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Novo relatório</span>
+      <div class="input-field">
+        <%= f.label :descricao %>
+        <%= f.text_area :descricao, :class => "materialize-textarea" %>
+      </div>
   </div>
+  <div class="card-action">
+      <%= f.submit 'Enviar', :class => 'btn cyan' %>
+  </div>
+</div>
 
   <% f.object.demanda_id = params[:id]%>
   <%= f.hidden_field :demanda_id%>
@@ -22,8 +30,4 @@
   <%= f.hidden_field :colaborador_id%>
 
 
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

@@ -1,6 +1,4 @@
-<h1>Editing Demanda</h1>
-
 <%= render 'relatorio', relatorio_colaborador: @relatorio %>
 
-<%= link_to 'Show', @demanda %> |
-<%= link_to 'Back', demandas_path %>
+<%= link_to 'Voltar', demandas_path, :class => 'btn grey' %>
+<%= link_to 'Ver Demanda Completa', @demanda, :class => 'btn cyan' %>
